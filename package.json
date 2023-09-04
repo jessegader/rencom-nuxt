@@ -2,7 +2,7 @@
 	"name": "nuxt-app",
 	"private": true,
 	"engines": {
-		"node": "18.x"
+		"node": "16.x"
 	},
 	"scripts": {
 		"build": "nuxt build",
@@ -13,10 +13,10 @@
 		"start": "node .output/server/index.mjs"
 	},
 	"devDependencies": {
-		"@directus/sdk": "^11.0.3",
 		"@nuxt/devtools": "^0.8.2",
 		"@webdiscus/pug-loader": "^2.10.5",
 		"nuxt": "^3.7.0",
+		"nuxt-directus": "^5.5.0",
 		"pug": "^3.0.2",
 		"sass": "^1.66.1",
 		"sass-loader": "^13.3.2",

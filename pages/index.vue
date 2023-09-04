@@ -1,12 +1,11 @@
-<template>
-    <h1>{{ news.title }}</h1>
-    <p>{{ news.desc }}</p>
+<template lang='pug'>
+p {{ news[0].desc }}
 </template>
 
 <script setup>
-const { $directus, $readItems } = useNuxtApp()
+const { getItems } = useDirectusItems()
 
-const news = await useAsyncData('news', () => {
-    return $directus.request($readItems('news'))
+const news = await getItems({
+    collection: "news"
 })
 </script>

@@ -1,6 +1,9 @@
 {
 	"name": "nuxt-app",
 	"private": true,
+	"engines": {
+		"node": "18.x"
+	},
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
@@ -19,8 +22,5 @@
 		"sass-loader": "^13.3.2",
 		"yaml": "^2.3.2",
 		"yaml-loader": "^0.8.0"
-	},
-	"engines": {
-		"node": "16.x"
 	}
 }

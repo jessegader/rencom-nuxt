@@ -26,5 +26,7 @@
 		"yaml": "^2.3.2",
 		"yaml-loader": "^0.8.0"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"@heroicons/vue": "^2.0.18"
+	}
 }

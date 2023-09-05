@@ -1,17 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ['nuxt-directus', '@nuxtjs/tailwindcss'], 
+  modules: ['nuxt-directus'], 
   directus: { 
      url: 'https://api.rencom.xyz'
   },
   ssr: false,
   app: {
     head: {
-        htmlAttrs: {
-           'data-theme': 'dracula',
-        },
-        title: 'title',
+        htmlAttrs: {},
+        title: '',
         charset: 'utf-8',
         meta: [],
         link: [],

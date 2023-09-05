@@ -14,19 +14,16 @@
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "^0.8.2",
-		"@nuxtjs/tailwindcss": "^6.8.0",
-		"@tailwindcss/typography": "^0.5.9",
-		"@webdiscus/pug-loader": "^2.10.5",
-		"daisyui": "^3.6.4",
+		"@vicons/material": "^0.12.0",
+		"naive-ui": "^2.34.4",
 		"nuxt": "^3.7.0",
 		"nuxt-directus": "^5.5.0",
 		"pug": "^3.0.2",
 		"sass": "^1.66.1",
 		"sass-loader": "^13.3.2",
+		"simple-pug-loader": "^0.2.1",
+		"vfonts": "^0.0.3",
 		"yaml": "^2.3.2",
 		"yaml-loader": "^0.8.0"
-	},
-	"dependencies": {
-		"@heroicons/vue": "^2.0.18"
 	}
 }

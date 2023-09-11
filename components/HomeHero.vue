@@ -64,7 +64,6 @@ onMounted(() => {
 		const animLogo = document.querySelector('.content .logo')
 		animLogo.style.setProperty('transform', `rotate3d(${-tiltx},${-tilty},0,${degree}deg)`)
 
-		console.log(animLogo)
 		// console.log(tiltx)
 
 		// gsap.to('.logo', {

@@ -9,6 +9,6 @@ import { NSpace, NText } from 'naive-ui'
 
 <style lang="sass" scoped>
 	.n-space
-		height: 100dvh
+		height: 100vh
 		padding: 1.35rem
 </style>

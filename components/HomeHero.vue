@@ -18,12 +18,13 @@
 
 <script setup>
 import { ref, h } from 'vue'
-import { NCard, NSpace, NText } from 'naive-ui'
-import gsap from 'gsap'
 import { useMainStore } from '@/store'
 const { getItems } = useDirectusItems()
 const data = await getItems({ collection: 'home' })
 const store = useMainStore()
+//
+import { NCard, NSpace, NText } from 'naive-ui'
+import gsap from 'gsap'
 
 onMounted(() => {
 	const video = document.querySelector('video')
@@ -48,7 +49,6 @@ onMounted(() => {
 			{ duration: 1, opacity: 0.7, fill: '#908ee2', ease: 'back.out(4)' },
 			'<'
 		)
-	
 
 	document.addEventListener('mousemove', (e) => {
 		let cx = Math.ceil(window.innerWidth / 1.8)
@@ -62,7 +62,10 @@ onMounted(() => {
 		let degree = radius * 20
 
 		const animLogo = document.querySelector('.content .logo')
-		animLogo.style.setProperty('transform', `rotate3d(${-tiltx},${-tilty},0,${degree}deg)`)
+		animLogo.style.setProperty(
+			'transform',
+			`rotate3d(${-tiltx},${-tilty},0,${degree}deg)`
+		)
 
 		// console.log(tiltx)
 
@@ -72,7 +75,6 @@ onMounted(() => {
 		// 	rotationZ: 0,
 		// 	rotate: degree,
 		// })
-		
 	})
 })
 </script>

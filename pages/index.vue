@@ -1,6 +1,6 @@
 <template lang="pug">
 NSpace.max(vertical)
-	HomeHero
+	p
 </template>
 
 <script setup>

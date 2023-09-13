@@ -23,7 +23,6 @@
 		"naive-ui": "^2.34.4",
 		"nuxt": "^3.7.0",
 		"nuxt-directus": "^5.5.0",
-		"nuxt-security": "^0.14.4",
 		"pug": "^3.0.2",
 		"sass": "^1.66.1",
 		"sass-loader": "^13.3.2",

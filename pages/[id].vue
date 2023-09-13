@@ -1,17 +1,13 @@
 <template lang="pug">
-h1 {{ post.title }}
+NCard
+  h1 {{ post.title }}
 </template>
 
 <script setup>
+import { NCard } from 'naive-ui'
 const route = useRoute()
 const { getItems } = useDirectusItems()
-const query = await getItems({
-  collection: 'news',
-  params: {
-    filter: { id: route.params.id },
-  },
-})
-
+const query = await getItems({ collection: 'news', params: { filter: { id: route.params.id } } })
 const post = await query.shift()
 
 // const post = async () => {
@@ -25,9 +21,6 @@ const post = await query.shift()
 //     })
 //   } catch (e) { }
 // }
-
-//
-
 // if (!post.value)
 //   throw createError({
 //     statusCode: 404,

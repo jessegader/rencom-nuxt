@@ -18,19 +18,12 @@ import { BoltRound } from '@vicons/material'
 const renderIcon = (icon) => () => h(NIcon, () => h(icon))
 let menuOpt = []
 
-pages.forEach(
-	(el) =>
-	(menuOpt = [{ label: el.title, key: el.id }, ...menuOpt].sort(
-		(a, b) => a.key - b.key
-	))
-)
-
-console.log(menuOpt)
+pages.forEach((el) => (menuOpt = [{ label: el.title, key: el.id }, ...menuOpt].sort((a, b) => a.key - b.key)))
 </script>
 
 <style lang="sass" scoped>
-	.logo
-		padding: 0.5rem 1.25rem 0
-	.rc-menu
-		padding: 0 1.25rem
+.logo
+	padding: 0.5rem 1.25rem 0
+.rc-menu
+	padding: 0 1.25rem
 </style>

@@ -1,0 +1,66 @@
+DIRECTUS - DOCKER - DIGITAL OCEAN
+
+DIGITAL OCEAN
+    $200 in credit for your first 60 days with DigitalOcean
+        https://www.digitalocean.com/try/free-trial-offer
+    CREATE APP PLATFORM
+        CHOOSE DOCKER HUB
+            REPOSITORY: directus/directus
+            EDIT PLAN: PRO 1 or 2
+                https://docs.digitalocean.com/products/app-platform/how-to/scale-app/
+            CREATE DATABASE
+                Apps > App > Create / Attach Database
+                    PostgreSQL
+            CREATE STORAGE
+                Spaces > Create Spaces Bucket
+                Auth Info Location
+                    API > Spaces Keys
+                    Spaces > Space > Origin Endpoint
+            CREATE FRONTEND
+                Apps > App > Create Resources From Source Code
+                    GitHub Repository
+                    Nuxt 3
+                        App > Settings
+                            Commands:
+                                Build Command: npm run build
+                                Run Command: npm start
+                        V2: https://v2.nuxt.com/deployments/digital-ocean
+                        V3: https://nitro.unjs.io/deploy/providers/digitalocean
+            NUXT ENVIROMENT VARIABLES:
+                NITRO_PRESET=digital-ocean
+            DIRECTUS ENVIROMENT VARIABLES:
+                KEY=x1NsUcPb9h7s9RVRtGXXkagKt4dbzyQu
+                SECRET=zNUhfETtDzvxKdRCjuiZ6t0ACWyzdyUS
+                ADMIN_EMAIL=admin@rencom.xyz
+                ADMIN_PASSWORD=R3nC0m
+                PUBLIC_URL=https://rencom-s8oty.ondigitalocean.app/
+                DB_CLIENT=pg
+                DB_HOST=${database.HOSTNAME}
+                DB_PORT=${database.PORT}
+                DB_DATABASE=${database.DATABASE}
+                DB_USER=${database.USERNAME}
+                DB_PASSWORD=${database.PASSWORD}
+                DB_SSL__CA=${database.CA_CERT}
+                DB_SSL__REJECT_UNAUTHARIZED=false
+                NODE_TLS_REJECT_UNAUTHORIZED=false
+                STORAGE_LOCATIONS=do
+                STORAGE_DO_DRIVER=s3
+                STORAGE_DO_KEY=DO0067UCBJMNZ6A9KZLN
+                STORAGE_DO_SECRET=0fKuwwEQtX+oDnm4Z9kZsVkQZHMb5RdioxUjM4wqqt8
+                STORAGE_DO_REGION=nyc3
+                STORAGE_DO_ENDPOINT=https://nyc3.digitaloceanspaces.com/
+                STORAGE_DO_BUCKET=rencom-storage
+                STORAGE_DO_ROOT=/data
+        NOTES:
+            I couldnt get directus to serve from '/admin' and leave '/' open for nuxt
+            so I setup subdomains and split up the front and back to seperate apps in the app platform
+
+            I tried to setup Nuxt 2 but Directus JavaScript SDK required Node v18 and digitalocean app max was Node v16
+            so using Nuxt 3 with nuxt-directus package https://docs.directus.io/blog/nuxt-directus-getting-started.html
+            
+DIRECTUS
+    https://docs.directus.io/self-hosted/config-options.html
+
+NUXT
+    NAIVE UI COMPONENT LIBRARY
+        https://www.naiveui.com/en-US/dark/components

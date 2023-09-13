@@ -4,7 +4,7 @@
 	NCard.hero
 		template(#cover)
 			video(width='1280' height='auto' autoplay muted loop)
-				source(:src='`${store.api}${data.video}`' type='video/mp4')
+				source(:src='`${store.assets}${data.video}`' type='video/mp4')
 	.content 
 		.logo
 			.logo1

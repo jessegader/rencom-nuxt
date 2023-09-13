@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useMainStore = defineStore('main', {
 
   state: () => ({
-    api: 'https://api.rencom.xyz/assets/',
+    assets: 'https://api.rencom.xyz/assets/',
     counter: 0
   }),
   getters: {

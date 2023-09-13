@@ -1,7 +1,7 @@
 <template lang="pug">
 NLayoutHeader
 	NSpace.max.rc-menu
-		NImage.logo(preview-disabled width='240' :src='`${store.api}${data.logo_horizontal}`')
+		NImage.logo(preview-disabled width='240' :src='`${store.assets}${data.logo_horizontal}`')
 		NMenu(mode='horizontal' :options='menuOpt')
 </template>
 

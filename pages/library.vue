@@ -1,13 +1,14 @@
 <template lang="pug">
 NSpace.max(vertical)
-	Test(:data='data')
+    LibraryHero(:data='data')
 </template>
 
 <script setup>
 import { NSpace } from 'naive-ui'
 const { getItems } = useDirectusItems()
-const query = await getItems({ collection: 'news', params: { filter: { id: 1 } } })
-const data = 'hello'
+const query = await getItems({ collection: 'components', params: { filter: { id: 1 } } })
+const data = await query
+console.log(data)
 </script>
 
 <style lang="sass" scoped>

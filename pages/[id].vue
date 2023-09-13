@@ -6,7 +6,7 @@ h1 {{ post.title }}
 const route = useRoute()
 const { getItems } = useDirectusItems()
 const query = await getItems({
-  collection: 'posts',
+  collection: 'news',
   params: {
     filter: { id: route.params.id },
   },

@@ -11,5 +11,5 @@
 
 <script setup>
 const { getItems } = useDirectusItems()
-const posts = await getItems({ collection: 'posts' })
+const posts = await getItems({ collection: 'news' })
 </script>

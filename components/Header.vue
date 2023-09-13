@@ -1,7 +1,7 @@
 <template lang="pug">
 NLayoutHeader
 	NSpace.max.rc-menu
-		NImage.logo(preview-disabled width='240' :src='`${store.api}${data.logo}`')
+		NImage.logo(preview-disabled width='240' :src='`${store.api}${data.logo_horizontal}`')
 		NMenu(mode='horizontal' :options='menuOpt')
 </template>
 
@@ -9,7 +9,7 @@ NLayoutHeader
 import { ref, h } from 'vue'
 import { useMainStore } from '@/store'
 const { getItems } = useDirectusItems()
-const data = await getItems({ collection: 'header' })
+const data = await getItems({ collection: 'global' })
 const pages = await getItems({ collection: 'pages' })
 const store = useMainStore()
 // ui

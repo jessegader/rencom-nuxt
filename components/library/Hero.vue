@@ -2,8 +2,8 @@
 .library-hero
 	NCard(size='huge')
 		template(#cover)
-			img(:src='`${store.assets}${data.image}`')
-		span(v-html='data.content')
+			img(:src='`${store.assets}${data.heroImage}`')
+		span(v-html='data.heroContent')
 
 </template>
 

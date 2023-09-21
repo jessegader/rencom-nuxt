@@ -1,7 +1,8 @@
 <template lang="pug">
 NLayoutHeader(:bordered='store.view !== "home"')
 	NSpace.rc-menu
-		NImage.logo(preview-disabled width='260' :src='`${store.assets}${data.logoLongBlack}`')
+		NuxtLink(to='/')
+			NImage.logo(preview-disabled width='260' :src='`${store.assets}${data.logoLongBlack}`')
 		NMenu(:mode='store.mobile ? "vertical" : "horizontal"' :options='menuOpt')
 </template>
 

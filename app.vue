@@ -1,5 +1,5 @@
 <template lang="pug">
-NConfigProvider(:theme='lightTheme')
+NConfigProvider(:theme='lightTheme' :theme-overrides='themeOverrides' :class='store.view')
 	NScrollbar(style='max-height:100dvh')
 		NSpace(vertical)
 			NLayout
@@ -9,38 +9,32 @@ NConfigProvider(:theme='lightTheme')
 </template>
 
 <script setup>
-import {
-	NThemeEditor,
-	NConfigProvider,
-	NScrollbar,
-	darkTheme,
-	lightTheme,
-	NSpace,
-	NLayout,
-} from 'naive-ui'
+import { useMainStore } from '@/store'
+const store = useMainStore()
+store.handleMobile('780')
+
+import { NThemeEditor, NConfigProvider, NScrollbar, darkTheme, lightTheme, NSpace, NLayout } from 'naive-ui'
 const themeOverrides = {
 	common: {
-		primaryColor: '#36108BFF',
-		primaryColorHover: '#5653bcFF',
-		primaryColorPressed: '#6d4dbcFF',
+		primaryColor: '#36108B',
+		primaryColorHover: '#665EA8',
+		primaryColorPressed: '#665EA8',
 		primaryColorSuppl: 'rgba(69, 66, 149, 1)',
 	},
 }
 </script>
 
 <style lang="sass">
-	.n-scrollbar-rail
-		width: 12px !important
-		.n-scrollbar-rail__scrollbar
-			width: 10px !important
-	.max
-		max-width: 1080px
-		height: 80px
-		align-items: center
-		margin: 0 auto
-	.rc-menu
-		div:nth-child(2)
-			margin-left: auto
-		.n-menu-item-content:hover
-			background-color: var(--n-item-color-hover)
+.n-scrollbar-rail
+	width: 12px !important
+	.n-scrollbar-rail__scrollbar
+		width: 10px !important
+.rc-menu
+	div:nth-child(2)
+		margin-left: auto
+	.n-menu.n-menu--horizontal .n-menu-item-content
+		padding: 0 18px 0 0
+.logo img
+	width: 100%
+	max-width: 260px
 </style>

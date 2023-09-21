@@ -1,13 +1,16 @@
 <template lang="pug">
 NSpace.max(vertical)
-	Test(:data='data')
+	HomeHero(:data='`${store.assets}${data.heroVideo}`')
 </template>
 
 <script setup>
-import { NSpace } from 'naive-ui'
+import { ref, h } from 'vue'
+import { useMainStore } from '@/store'
 const { getItems } = useDirectusItems()
-const query = await getItems({ collection: 'news', params: { filter: { id: 1 } } })
-const data = 'hello'
+const data = await getItems({ collection: 'home' })
+const store = useMainStore()
+store.setView('home')
+import { NSpace } from 'naive-ui'
 </script>
 
 <style lang="sass" scoped>

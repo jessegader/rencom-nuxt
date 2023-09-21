@@ -4,6 +4,9 @@ export const useMainStore = defineStore('main', {
 
   state: () => ({
     assets: 'https://api.rencom.xyz/assets/',
+    view: '',
+    loading: true,
+    mobile: '',
     counter: 0
   }),
   getters: {
@@ -14,9 +17,22 @@ export const useMainStore = defineStore('main', {
     },
   },
   actions: {
+    setView(val) {
+      this.view = val
+    },
+    setLoading(val) {
+      this.loading = val
+    },
     reset() {
       // `this` is the store instance
       this.counter = 0
     },
+    handleMobile(val) {
+      // watch media query
+      const mq = window.matchMedia(`(max-width: ${val}px)`)
+      const mqMatch = (e) => this.mobile = e.matches
+      mqMatch(mq)
+      mq.addEventListener('change', mqMatch)
+  }
   },
 })

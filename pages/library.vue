@@ -1,18 +1,20 @@
 <template lang="pug">
-NSpace.max(vertical)
-	LibraryHero(:data='data')
+NLayoutContent
+	LibraryHero(:data='library')
+	.max.wrap
+		LibraryButton(:data='library')
 </template>
 
 <script setup>
-import { NSpace } from 'naive-ui'
+import { NSpace, NLayoutContent } from 'naive-ui'
 const { getItems } = useDirectusItems()
-const query = await getItems({ collection: 'library', params: { filter: { id: 1 } } })
-const data = await query
-console.log(data)
+const query = await getItems({ collection: 'library' })
+// const query = await getItems({ collection: 'library', params: { filter: { id: 1 } } })
+const library = await query
+console.log(library)
 </script>
 
 <style lang="sass" scoped>
-.n-space
-	height: 100dvh
-	padding: 1.35rem
+.n-layout-content
+	min-height: 100dvh
 </style>

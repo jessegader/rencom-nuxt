@@ -7,6 +7,7 @@ export const useMainStore = defineStore('main', {
     view: '',
     loading: true,
     mobile: '',
+    menuOpen: false,
     counter: 0
   }),
   getters: {
@@ -22,6 +23,9 @@ export const useMainStore = defineStore('main', {
     },
     setLoading(val) {
       this.loading = val
+    },
+    setMenu() {
+      this.menuOpen = !this.menuOpen
     },
     reset() {
       // `this` is the store instance

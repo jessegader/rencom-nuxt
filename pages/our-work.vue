@@ -1,6 +1,6 @@
 <template lang="pug">
-NSpace.max(vertical)
-    LibraryHero(:data='data')
+NLayoutContent
+	LibraryHero(:data='data')
 </template>
 
 <script setup>
@@ -12,7 +12,6 @@ console.log(data)
 </script>
 
 <style lang="sass" scoped>
-.n-space
+.n-layout-content
 	height: 100dvh
-	padding: 1.35rem
 </style>

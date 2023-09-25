@@ -4,7 +4,7 @@ NLayoutFooter(bordered)
 	NGrid(:cols='4')
 		NGi.left
 			NText(v-html='data.footerContact')
-			NSpace.social
+			NSpace.social(horizontal)
 				a(:href='getLink("facebook")')
 					NIcon(size='20')
 						Facebook

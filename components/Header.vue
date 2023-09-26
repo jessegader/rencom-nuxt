@@ -18,13 +18,24 @@ import { useMainStore } from '@/store'
 const { getItems } = useDirectusItems()
 
 const store = await useMainStore()
-store.setLoading(true)
 const data = await getItems({ collection: 'global' })
 const pages = await getItems({ collection: 'pages' })
-store.setLoading(false)
 
+// menu options form pages
 let menuOpt = []
 pages.forEach((el) => (menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${getSlug(el.title)}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
+
+onMounted(() => {
+	// add nav item clone for animation
+	const items = document.querySelectorAll('.n-menu-item-content-header')
+	items.forEach((item) => {
+		const element = document.createElement('span')
+		const text = document.createTextNode(item.firstChild.innerHTML)
+		element.appendChild(text)
+		element.style.opacity = 0
+		item.prepend(element)
+	})
+})
 </script>
 
 <style lang="sass" scoped>
@@ -52,4 +63,17 @@ pages.forEach((el) => (menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${
 				top: 0
 				right: 0
 				z-index: 10
+</style>
+<style lang="sass">
+.n-menu-item-content-header
+	span
+		position: absolute
+		left: 0
+		bottom: 10px
+		opacity: 0
+		color: rgb(102 94 168 / 30%)
+		transition: all 0.35s ease-out
+	&:hover span
+		bottom: 0
+		opacity: 1 !important
 </style>

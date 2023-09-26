@@ -1,6 +1,6 @@
 <template lang="pug">
 .home-hero
-	include ../assets/pug/index
+	include ../../assets/pug/index
 	NCard.hero(:bordered='false')
 		template(#cover)
 			video(width='1280' height='auto' autoplay muted loop)
@@ -78,7 +78,6 @@ onMounted(() => {
 
 <style lang="sass">
 .hero
-	position: absolute
 	width: 100%
 	height: 56dvw
 	max-height: 76dvh
@@ -95,12 +94,14 @@ onMounted(() => {
 	width: 100%
 	height: 56dvw
 	max-height: 76dvh
+	top: 0
 	left: 0
 	right: 0
 	margin-top: -1.35rem
 	background: linear-gradient(to bottom,  rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%)
 	perspective: 1000
 	.logo
+		margin-top: -100px
 		width: 28dvw
 		height: 28dvw
 		max-height: 48dvh

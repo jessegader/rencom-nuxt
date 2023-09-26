@@ -18,7 +18,7 @@ const data = await getItems({ collection: 'home' })
 .home-slider
 	background-color: #36108B
 	margin: 0 0 0 -1.35rem
-	.n-carousel
+	.n-carousel, .n-carousel__slide
 		overflow: visible !important
 	.carousel-img
 		overflow: visible

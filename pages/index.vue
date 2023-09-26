@@ -28,9 +28,11 @@ const callout = `<h4>${await tags}</h4>${await data.heroCallout}`
 		position: relative
 		display: flex
 		flex-flow: column nowrap
+		justify-content: center
 		width: 62%
+		height: 138px
 		margin-top: -160px
-		padding: 1.35rem 0 1.35rem 1.35rem
+		padding: 0 0 0 1.35rem
 		border-radius: 0 150px 0 0
 		left: -1.35rem
 		background: #fff

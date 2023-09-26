@@ -1,6 +1,6 @@
 <template lang="pug">
 .home-slider
-	NCarousel.slider(autoplay)
+	NCarousel.slider(autoplay draggable)
 		img.carousel-img(:src='`${store.assets}${data.sliderImages}`')
 		img.carousel-img(:src='`${store.assets}${data.sliderImages}`')
 
@@ -25,4 +25,5 @@ const data = await getItems({ collection: 'home' })
 		margin: -25px 0 0 -0.65rem
 		width: 100%
 		height: auto
+		cursor: pointer
 </style>

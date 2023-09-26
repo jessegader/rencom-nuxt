@@ -12,24 +12,19 @@ NConfigProvider(:theme='lightTheme' :theme-overrides='themeOverrides' :class='st
 </template>
 
 <script setup>
+import { ref, h } from 'vue'
 import { NThemeEditor, NConfigProvider, NScrollbar, darkTheme, lightTheme, NSpace, NLayout, NDrawer, NDrawerContent, NMenu } from 'naive-ui'
-const { getItems } = useDirectusItems()
-const pages = await getItems({ collection: 'pages' })
-import { useMainStore } from '@/store'
-const store = useMainStore()
 import NLink from '~/components/NLink.vue'
 
+import { useMainStore } from '@/store'
+const { getItems } = useDirectusItems()
+const pages = await getItems({ collection: 'pages' })
+const store = useMainStore()
+
 store.handleMobile('780')
-const slugIt = (val) =>
-	val
-		.toLowerCase()
-		.trim()
-		.replace(/[^\w\s-]/g, '')
-		.replace(/[\s_-]+/g, '-')
-		.replace(/^-+|-+$/g, '')
 
 let menuOpt = []
-pages.forEach((el) => (menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${slugIt(el.title)}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
+pages.forEach((el) => (menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${getSlug(el.title)}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
 
 const themeOverrides = {
 	common: {

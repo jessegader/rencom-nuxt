@@ -23,22 +23,14 @@ const data = await getItems({ collection: 'global' })
 const pages = await getItems({ collection: 'pages' })
 store.setLoading(false)
 
-const slugIt = (val) =>
-	val
-		.toLowerCase()
-		.trim()
-		.replace(/[^\w\s-]/g, '')
-		.replace(/[\s_-]+/g, '-')
-		.replace(/^-+|-+$/g, '')
-
 let menuOpt = []
-pages.forEach((el) => (menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${slugIt(el.title)}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
+pages.forEach((el) => (menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${getSlug(el.title)}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
 </script>
 
 <style lang="sass" scoped>
 .n-layout-header
 	.logo
-		padding: 0.5rem 1.25rem 0
+		padding: 0.5rem 1.25rem 0 0
 	.n-space
 		height: 80px
 		width: auto

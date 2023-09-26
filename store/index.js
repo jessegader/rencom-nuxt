@@ -27,10 +27,6 @@ export const useMainStore = defineStore('main', {
     setMenu() {
       this.menuOpen = !this.menuOpen
     },
-    reset() {
-      // `this` is the store instance
-      this.counter = 0
-    },
     handleMobile(val) {
       // watch media query
       const mq = window.matchMedia(`(max-width: ${val}px)`)

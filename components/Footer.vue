@@ -34,7 +34,6 @@ import { ref, h } from 'vue'
 import { NSpace, NLayoutFooter, NText, NImage, NButton, NIcon, NMenu, NGrid, NGi, NH4 } from 'naive-ui'
 import { FacebookF as Facebook, VimeoV as Vimeo, LinkedinIn as LinkedIn, Twitter } from '@vicons/fa'
 import NLink from '~/components/NLink.vue'
-const renderIcon = (icon) => () => h(NIcon, () => h(icon))
 
 import { useMainStore } from '@/store'
 const { getItems } = useDirectusItems()
@@ -43,18 +42,10 @@ const global = await getItems({ collection: 'global' })
 const pages = await getItems({ collection: 'pages' })
 const store = useMainStore()
 
-const getLink = (val) => global.links.find((el) => el.title === val).link
-const slugIt = (val) =>
-	val
-		.toLowerCase()
-		.trim()
-		.replace(/[^\w\s-]/g, '')
-		.replace(/[\s_-]+/g, '-')
-		.replace(/^-+|-+$/g, '')
-
 let menuOpt = []
-data.footerMenu.forEach((el) => {
-	menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${slugIt(pages.find((page) => page.id == el).title)}` }, pages.find((page) => page.id == el).title) }, ...menuOpt]
+const getLink = (val) => global.links.find((el) => el.title === val).link
+data.footerMenu.forEach((el, i) => {
+	menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${getSlug(pages.find((page) => page.id == el).title)}` }, pages.find((page) => page.id == el).title) }, ...menuOpt]
 })
 </script>
 

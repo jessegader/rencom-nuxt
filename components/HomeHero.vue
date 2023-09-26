@@ -1,7 +1,7 @@
 <template lang="pug">
 .home-hero
 	include ../assets/pug/index
-	NCard.hero
+	NCard.hero(:bordered='false')
 		template(#cover)
 			video(width='1280' height='auto' autoplay muted loop)
 				source(:src='data' type='video/mp4')

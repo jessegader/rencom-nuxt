@@ -3,7 +3,11 @@ NLayoutFooter(bordered)
 	include ../assets/pug/index
 	NGrid(:cols='4')
 		NGi.left
-			NText(v-html='data.footerContact')
+			NuxtLink(:to='data.footerButtonLink')
+				NButton(type='primary' size='large' icon-placement='right') {{ data.footerButtonText }}
+					template(#icon)
+						NIcon
+							+renIcon
 			NSpace.social(horizontal)
 				a(:href='getLink("facebook")')
 					NIcon(size='20')
@@ -18,13 +22,9 @@ NLayoutFooter(bordered)
 					NIcon(size='20')
 						Vimeo
 		NGi.center(span='2')
-			NH4(type='primary' v-html='data.footerCallout')
 			NMenu.footer-menu(mode='horizontal' :options='menuOpt')
-			NuxtLink(:to='data.footerButtonLink')
-				NButton(type='primary' size='large' icon-placement='right') {{ data.footerButtonText }}
-					template(#icon)
-						NIcon
-							+renIcon
+			NH4(type='primary' v-html='data.footerCallout')
+			span(v-html='`© ${getYear()} Renegade Communications`')
 		NGi.right
 			NImage.footer-logo(preview-disabled width='180' :src='`${store.assets}${data.footerLogo}`')
 </template>
@@ -42,11 +42,12 @@ const global = await getItems({ collection: 'global' })
 const pages = await getItems({ collection: 'pages' })
 const store = useMainStore()
 
-let menuOpt = []
 const getLink = (val) => global.links.find((el) => el.title === val).link
-data.footerMenu.forEach((el, i) => {
-	menuOpt = [{ key: el.id, label: () => h(NLink, { to: `/${getSlug(pages.find((page) => page.id == el).title)}` }, pages.find((page) => page.id == el).title) }, ...menuOpt]
-})
+const getYear = () => new Date().getFullYear()
+let menuOpt = []
+pages
+	.filter((el) => el.slug !== 'media-production')
+	.forEach((el) => (menuOpt = [{ key: el.sort, label: () => h(NLink, { to: `/${el.slug}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
 </script>
 
 <style lang="sass" scoped>
@@ -65,40 +66,43 @@ data.footerMenu.forEach((el, i) => {
 		.left
 			align-items: flex-start
 			.social
-				margin: 0.25rem 0 0 -0.25rem
-				gap: 0 1.25rem !important
+				margin: 1.4rem 0 0 -0.15rem
+				gap: 0 1.6rem !important
+			.n-button
+				width: 160px
 		.center
 			text-align: center
 			.footer-menu
-				font-size: 94%
-				margin-bottom: 0.5rem
+				font-size: 142%
 			.n-h4
 				color: #36108B
-				letter-spacing: -0.005rem
-				margin-bottom: 0.25rem
+				font-size: 1.3rem
+				font-weight: 600
+				text-transform: none
+				letter-spacing: -0.01rem
+				margin-top: 0.5rem
 		.right
 			align-items: flex-end
 			.n-image
-				max-width: 180px
+				max-width: 135px
 @media (max-width:780px)
 	.n-layout-footer
-		padding:  0 1rem 1rem
 		.n-grid
 			grid-template-columns: none !important
-			grid-template-rows: repeat(3, minmax(0px, 1fr))
+			grid-template-rows: repeat(2, minmax(0px, 1fr))
 			& > div
 				grid-column: auto !important
 				width: 100%
 				align-items: center !important
 				text-align: center !important
 			.right
-				margin-top: 0.75rem
+				display: none
 			.center
-				border-bottom: 1px solid #f0f0f0
+				// border-top: 1px solid #f0f0f0
+				// border-bottom: 1px solid #f0f0f0
+				padding: 1rem 0 2.5rem 0
 			.left
-				order: 2
-				margin-top: 1rem
-				border-top: 1px solid #f0f0f0
+				margin-top: 0.5rem
 				h4
 					br
 						display: none

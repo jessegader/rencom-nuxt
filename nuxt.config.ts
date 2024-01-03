@@ -18,5 +18,14 @@ export default defineNuxtConfig({
 	css: ['~/assets/sass/index.sass'],
 	alias: {
 		pinia: "/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs"
-	  }
+	  },
+	vite: {
+		css: {
+			preprocessorOptions: {
+			  sass: {
+				additionalData: `@import "@/assets/sass/global.sass"`
+			  }
+			}
+		  },
+	}
 })

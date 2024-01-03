@@ -1,9 +1,10 @@
 <template lang="pug">
 NLayoutContent
 	HomeHero(:data='`${store.assets}${data.heroVideo}`')
-	.max.wrap
-		.callout(v-html='callout')
-		HomeSlider
+	.callout
+		.max(v-html='callout')
+	HomeWork
+	HomeLogos
 </template>
 
 <script setup>
@@ -25,25 +26,25 @@ const callout = `<h4>${await tags}</h4>${await data.heroCallout}`
 .n-layout-content
 	min-height: 100dvh
 	.callout
-		position: relative
 		display: flex
 		flex-flow: column nowrap
 		justify-content: center
-		width: 62%
-		height: 138px
-		margin-top: -160px
-		padding: 0 0 0 1.35rem
-		border-radius: 0 150px 0 0
-		left: -1.35rem
-		background: #fff
+		text-align: center
+		height: 22dvw
+		max-height: 22dvh
+		padding: 1.35rem
+		background: #36108B
 </style>
 <style lang="sass">
 .n-layout-content
 	.callout
 		h1
-			font-size: 3dvw
+			font-size: 2.7cqi
 			margin: 0.5rem 0 0 0
+			color: #fff
 		h4
-			font-size: 1.7dvw
+			font-size: 1.7cqi
+			font-weight: 400
 			margin: 0
+			color: #fff
 </style>

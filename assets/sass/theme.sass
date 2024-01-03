@@ -1,0 +1,62 @@
+// theme overrides
+
+.n-button
+    border-radius: 12px
+    text-transform: uppercase
+    font-size: 90%
+    padding: 0 16px 0 20px
+// header
+.header
+    & > div:nth-child(2)
+        width: 46%
+        margin-left: auto
+    & > div:last-child
+        margin-left: 6cqi
+    .logo img
+        width: 92%
+        max-width: 260px
+    .n-menu.n-menu--horizontal
+        width: 100%
+        justify-content: space-around
+        overflow: visible
+        .n-menu-item
+            font-size: 0.88rem
+            font-weight: 500
+            letter-spacing: 0.025rem
+            padding: 0 0.1rem
+            .n-menu-item-content
+                padding: 0 0.5cqi 0 0
+                .n-menu-item-content-header
+                    overflow: visible
+                    text-overflow: unset
+                    span
+                        position: absolute
+                        left: 0
+                        bottom: 14px
+                        opacity: 0
+                        border-bottom: 2px solid #665ea8
+                        color: transparent
+                        transition: all 0.25s ease-out
+                    &:hover span
+                        bottom: 8px
+                        opacity: 1 !important
+
+.n-drawer-body-content-wrapper
+    padding: 1rem !important
+.mobile .n-menu-item-content:hover:before,
+.mobile .n-menu-item-content:active:before,
+.mobile .n-menu-item-content:focus:before,
+.mobile .n-menu-item-content:focus-within:before,
+.mobile.n-menu .n-menu-item-content.n-menu-item-content--selected::before
+    background-color: rgb(102 94 168) !important
+.mobile.n-menu .n-menu-item-content:hover .n-menu-item-content-header a,
+.mobile.n-menu .n-menu-item-content:focus-within .n-menu-item-content-header a,
+.mobile.n-menu .n-menu-item-content.n-menu-item-content--selected .n-menu-item-content-header a
+    color: white !important
+.n-menu.n-menu--horizontal .n-menu-item-content:hover .n-menu-item-content-header a
+    color: $primary !important
+// home
+.n-card.hero
+    border-radius: 0 !important
+    .n-card-cover
+        border-radius: 0 !important

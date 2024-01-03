@@ -2,8 +2,9 @@
 .library-hero
 	NCard(:bordered='false' size='huge')
 		template(#cover)
-			img(:src='`${store.assets}${data.heroImage}`')
-		span(v-html='data.heroContent')
+			img(v-if='data.heroImage' :src='`${store.assets}${data.heroImage}`')
+			.grad(v-else)
+		h1(v-html='data.title')
 	NText.tagbar
 		.max.wrap
 			span(v-for='tag in data.heroTags' v-html='tag')
@@ -27,7 +28,7 @@ defineProps({
 		width: 100%
 		height: 40dvw
 		max-height: 340px
-		background: #333
+		background: $primary-light
 		.n-card-cover
 			border-radius: 0
 			img
@@ -35,12 +36,15 @@ defineProps({
 				height: 100%
 				object-fit: cover
 				object-position: center
+			.grad
+				width: 100%
+				height: 40dvw
+				background: linear-gradient(90deg, #6D4DBC 4.17%, #5653BC 52.47%, #CF721B 96.91%)
 		.n-card__content
 			height: 100%
 			width: 100%
 			position: absolute
 			display: flex
-			justify-content: center
 			align-items: center
 			background: linear-gradient(to right,  rgba(0,0,0,0.35) 40%,rgba(0,0,0,0) 100%)
 			span
@@ -52,11 +56,10 @@ defineProps({
 				font-size: 260%
 				font-weight: 700
 				letter-spacing: 0.05rem
-				text-shadow: 0px 4px 4px rgba(0,0,0,0.65)
 				margin: 2.7rem 0 0 0
 	.tagbar
 		display: flex
-		background: #272727
+		background: $primary
 		font-size: 110%
 		color: rgba(255,255,255,0.85)
 		span

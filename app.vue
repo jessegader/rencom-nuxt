@@ -1,7 +1,7 @@
 <template lang="pug">
-NConfigProvider(:theme='lightTheme' :theme-overrides='themeOverrides' :class='store.view')
+NConfigProvider(:theme='lightTheme' :theme-overrides='themeOverrides' :class='[store.view, {scrolled: store.scrolled}, {mobile: store.mobile}]')
     NGlobalStyle
-    NScrollbar(style='max-height:100dvh')
+    NScrollbar(style='max-height:100dvh' :on-scroll='store.handleScroll')
         NSpace(vertical)
             NLayout
                 NDrawer(v-model:show='store.menuOpen' :width='220' :placement='right')

@@ -1,5 +1,27 @@
 // theme overrides
-
+a
+    text-decoration: none
+// scrolled
+.n-config-provider
+    transition: top 0.2s ease, height 0.2s ease
+    &.scrolled
+        height: calc(100dvh - 55px)
+        top: 55px
+        .n-layout-header
+            .n-space
+                height: 55px
+    &.mobile
+        height: calc(100dvh - 55px)
+        top: 55px
+        .n-layout-header
+            .n-space
+                height: 55px
+        @media (max-width:550px)
+            height: calc(100dvh - 40px)
+            top: 40px
+            .n-layout-header
+                .n-space
+                    height: 40px
 .n-button
     border-radius: 12px
     text-transform: uppercase
@@ -55,6 +77,9 @@
     color: white !important
 .n-menu.n-menu--horizontal .n-menu-item-content:hover .n-menu-item-content-header a
     color: $primary !important
+.n-menu .n-menu-item-content .n-menu-item-content-header
+    overflow: visible
+    text-overflow: unset
 // home
 .n-card.hero
     border-radius: 0 !important

@@ -1,9 +1,10 @@
 <template lang="pug">
 .home-work.max
     NList(hoverable clickable :show-divider='false')
-        NListItem(v-for='tag in data')
-            h1 {{tag.tagline}}
-            p {{ tag.title }}
+        NuxtLink(v-for='el in data' :to='`/work/${el.slug}`')
+            NListItem 
+                h1 {{el.tagline}}
+                p {{ el.title }}
 
 </template>
 
@@ -33,7 +34,12 @@ const store = useMainStore()
             margin: 0
         .n-list-item
             padding: 1.35cqi
-@media (max-width:800px)
+@media (max-width:780px)
     .home-work
         padding: 2rem 0
+        .n-list
+            h1
+                font-size: 4cqi
+            p
+                font-size: 2.5cqi
 </style>

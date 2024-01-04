@@ -8,6 +8,7 @@ export const useMainStore = defineStore('main', {
     loading: true,
     mobile: '',
     menuOpen: false,
+    scrolled: false,
     counter: 0
   }),
   getters: {
@@ -33,6 +34,11 @@ export const useMainStore = defineStore('main', {
       const mqMatch = (e) => this.mobile = e.matches
       mqMatch(mq)
       mq.addEventListener('change', mqMatch)
-  }
+    },
+    handleScroll() {
+      // watch scroll event
+      const bar = document.querySelector('.n-scrollbar-rail__scrollbar')
+      bar && +bar.style.top.slice(0,-2) >= 22 ? this.scrolled = true : this.scrolled = false
+    }
   },
 })

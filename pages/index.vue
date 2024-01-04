@@ -47,4 +47,11 @@ const callout = `<h4>${await tags}</h4>${await data.heroCallout}`
 			font-weight: 400
 			margin: 0
 			color: #fff
+@media (max-width:780px)
+	.n-layout-content
+		.callout
+			h1
+				font-size: 3.7cqi
+			h4
+				font-size: 2.7cqi
 </style>

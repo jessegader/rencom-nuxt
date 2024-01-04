@@ -4,8 +4,9 @@ NLayoutContent
     .work-page
         NCard
             NList(hoverable clickable)
-                NListItem(v-for='el in data')
-                    h1 {{  el.title }}
+                NuxtLink(v-for='el in data' :to='`/work/${el.slug}`')
+                    NListItem(v-for='el in data')
+                        h1 {{  el.title }}
 </template>
 
 <script setup>

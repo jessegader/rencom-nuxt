@@ -42,12 +42,14 @@ const global = await getItems({ collection: 'global' })
 const pages = await getItems({ collection: 'pages' })
 const store = useMainStore()
 
+let menuOpt = []
 const getLink = (val) => global.links.find((el) => el.title === val).link
 const getYear = () => new Date().getFullYear()
-let menuOpt = []
 pages
 	.filter((el) => el.slug !== 'media-production')
 	.forEach((el) => (menuOpt = [{ key: el.sort, label: () => h(NLink, { to: `/${el.slug}` }, el.title) }, ...menuOpt].sort((a, b) => a.key - b.key)))
+
+console.log(menuOpt)
 </script>
 
 <style lang="sass" scoped>
@@ -87,6 +89,7 @@ pages
 				max-width: 135px
 @media (max-width:780px)
 	.n-layout-footer
+		padding: 1rem
 		.n-grid
 			grid-template-columns: none !important
 			grid-template-rows: repeat(2, minmax(0px, 1fr))
@@ -98,9 +101,12 @@ pages
 			.right
 				display: none
 			.center
-				// border-top: 1px solid #f0f0f0
-				// border-bottom: 1px solid #f0f0f0
-				padding: 1rem 0 2.5rem 0
+				padding: 1rem 0
+				text-align: center
+				.footer-menu
+					font-size: 1rem
+				.n-h4
+					font-size: 1.15rem
 			.left
 				margin-top: 0.5rem
 				h4
@@ -110,5 +116,5 @@ pages
 
 <style lang="sass">
 .n-layout-footer .center .n-menu-item-content
-	padding: 0 6px
+	padding: 0 4px
 </style>

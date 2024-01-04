@@ -1,5 +1,5 @@
 <template lang="pug">
-NLayoutHeader(:bordered='store.view !== "home"')
+NLayoutHeader(bordered)
     include ../assets/pug/index
     NSpace.header.max
         NuxtLink(to='/')
@@ -63,6 +63,7 @@ watch(
         text-transform: uppercase
         flex-flow: row nowrap !important
         gap: 0.1rem !important
+        transition: all 0.2s ease
         div:last-child
             min-width: 140px
     .n-button.mobile
@@ -70,8 +71,11 @@ watch(
         --n-border-hover: none !important
         --n-border-pressed: none !important
         --n-border-focus: none !important
+        padding: 0
 @media (max-width:780px)
     .n-layout-header
+        .logo
+            max-width: 220px
         .n-space
             .n-menu
                 position: absolute

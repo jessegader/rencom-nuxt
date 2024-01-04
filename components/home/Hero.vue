@@ -13,17 +13,13 @@
 
 <script setup>
 import { NCard } from 'naive-ui'
-import gsap from 'gsap'
 import { gsapHero } from '~/composables/gsapHero.js'
-defineProps({
-    // imported from parent
-    data: {
-        type: String,
-        default: '',
-    },
-})
+
+// imported from parent
+defineProps({ data: { type: String, default: '' } })
+
 onMounted(() => {
-    gsapHero()
+	gsapHero()
 })
 </script>
 
@@ -76,7 +72,7 @@ onMounted(() => {
             position: absolute
             width: 100%
             transform: translateZ(0px)
-@media (max-width:800px)
+@media (max-width:780px)
     .home-hero
         .hero
             height: 66dvw
